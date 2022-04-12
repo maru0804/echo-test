@@ -8,3 +8,5 @@ echo学習用テストrepo作成しました
 ## run
 
 `docker-compose up`
+
+localhost:8080
