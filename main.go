@@ -5,11 +5,13 @@ import (
 
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
+	"github.com/maru0804/echo-test.git/control"
 )
 
 var e = createMux()
 
 func main() {
+	control.DbInit()
 	e.GET("/", articleIndex)
 
 	e.Logger.Fatal(e.Start(":8080"))
