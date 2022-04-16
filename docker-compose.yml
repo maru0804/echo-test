@@ -6,3 +6,21 @@ services:
       - "8080:8080"
     working_dir: /app
     tty: true
+  echo-db:
+    platform: linux/x86_64 
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_password
+      - MYSQL_DATABASE=echo_db_dev
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    container_name: echo-db
+    ports:
+      - "3306:3306"
+    # restart: always
+    volumes:
+      - data-dev:/var/lib/mysql
+    
+volumes:
+  data-dev:
+    driver: local
